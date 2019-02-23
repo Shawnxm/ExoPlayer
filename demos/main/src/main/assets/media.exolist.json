@@ -1,5 +1,15 @@
 [
   {
+    "name": "RobustNet",
+    "samples": [
+      {
+        "name": "Test",
+        "uri": "http://beirut.eecs.umich.edu/2sec/BigBuckBunny_2s_simple_2014_05_09.mpd",
+        "extension": "mpd"
+      }
+    ]
+  },
+  {
     "name": "YouTube DASH",
     "samples": [
       {

@@ -16,6 +16,8 @@
 package com.google.android.exoplayer2.trackselection;
 
 import android.support.annotation.Nullable;
+import android.util.Log;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Format;
@@ -227,7 +229,10 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
   public static final float DEFAULT_BANDWIDTH_FRACTION = 0.75f;
   public static final float DEFAULT_BUFFERED_FRACTION_TO_LIVE_EDGE_FOR_QUALITY_INCREASE = 0.75f;
   public static final long DEFAULT_MIN_TIME_BETWEEN_BUFFER_REEVALUTATION_MS = 2000;
-
+  private static final String TAG = "Harry_bitrate";
+  private static final String TAG1 = "Harry_BITRATE";
+  private static final String TAG2 = "Harry_BWestim";
+  private static final String TAG3 = "Harry_BWfract";
   private final BandwidthMeter bandwidthMeter;
   private final long minDurationForQualityIncreaseUs;
   private final long maxDurationForQualityDecreaseUs;
@@ -431,12 +436,24 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
    *     Long#MIN_VALUE} to ignore blacklisting.
    */
   private int determineIdealSelectedIndex(long nowMs) {
+    //long est = bandwidthMeter.getBitrateEstimate();
+    //float fra = bandwidthFraction;
     long effectiveBitrate = (long) (bandwidthMeter.getBitrateEstimate() * bandwidthFraction);
     int lowestBitrateNonBlacklistedIndex = 0;
     for (int i = 0; i < length; i++) {
       if (nowMs == Long.MIN_VALUE || !isBlacklisted(i, nowMs)) {
         Format format = getFormat(i);
         if (Math.round(format.bitrate * playbackSpeed) <= effectiveBitrate) {
+          try{
+            //PrintWriter printWriter = new PrintWriter(new FileWriter("/sdcard/"+System.currentTimeMillis()+"stall.log"));
+            //printWriter.println(System.currentTimeMillis() + "\t" + "Stall");
+            //Log.d(TAG, System.currentTimeMillis() + "\t" + "effectiveBitrate：" + "\t" + effectiveBitrate);
+            Log.d(TAG1, System.currentTimeMillis() + "\t" + "Bitrate：" + "\t" + format.bitrate);
+            //Log.d(TAG2, System.currentTimeMillis() + "\t" + "getBitrateEstimate()：" + "\t" + est);
+            //Log.d(TAG3, System.currentTimeMillis() + "\t" + "bandwidthFraction：" + "\t" + fra);
+            //printWriter.close();
+          }
+          catch(Exception e){}
           return i;
         } else {
           lowestBitrateNonBlacklistedIndex = i;

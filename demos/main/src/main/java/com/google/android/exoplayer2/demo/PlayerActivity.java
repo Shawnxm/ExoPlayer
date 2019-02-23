@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.ContentType;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -83,6 +84,10 @@ import java.net.CookieManager;
 import java.net.CookiePolicy;
 import java.util.List;
 import java.util.UUID;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /** An activity that plays media using {@link SimpleExoPlayer}. */
 public class PlayerActivity extends Activity
@@ -123,6 +128,9 @@ public class PlayerActivity extends Activity
   private static final String KEY_AUTO_PLAY = "auto_play";
 
   private static final CookieManager DEFAULT_COOKIE_MANAGER;
+
+  private static final String TAG = "Harry___stall";
+
   static {
     DEFAULT_COOKIE_MANAGER = new CookieManager();
     DEFAULT_COOKIE_MANAGER.setCookiePolicy(CookiePolicy.ACCEPT_ORIGINAL_SERVER);
@@ -684,9 +692,27 @@ public class PlayerActivity extends Activity
 
     @Override
     public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-      if (playbackState == Player.STATE_ENDED) {
-        showControls();
+      try {
+        if (playbackState == Player.STATE_ENDED) {
+          showControls();
+          Log.d(TAG, System.currentTimeMillis() + "\t" + "Stop");
+        }
+        if (playWhenReady && playbackState == Player.STATE_READY) {
+          // media actually playing
+        } else if (playWhenReady) {
+          // might be idle (plays after prepare()),
+          // buffering (plays when data available)
+          // or ended (plays when seek away from end)
+          Log.d(TAG, System.currentTimeMillis() + "\t" + "might be idle, buffering, or ended");
+        } else {
+          // player paused in any state
+          //PrintWriter printWriter = new PrintWriter(new FileWriter("/sdcard/"+System.currentTimeMillis()+"stall.log"));
+          //printWriter.println(System.currentTimeMillis() + "\t" + "Stall");
+          Log.d(TAG, System.currentTimeMillis() + "\t" + "Stall");
+          //printWriter.close();
+        }
       }
+      catch(Exception e){}
       updateButtonVisibilities();
     }
 
