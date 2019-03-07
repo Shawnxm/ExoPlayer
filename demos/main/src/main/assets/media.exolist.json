@@ -4,7 +4,7 @@
     "samples": [
       {
         "name": "Big Buck Bunny",
-        "uri": "http://beirut.eecs.umich.edu/2sec/BigBuckBunny_2s_simple_2014_05_09.mpd",
+        "uri": "http://sydney.eecs.umich.edu:4000/2sec/BigBuckBunny_2s_simple_2014_05_09.mpd",
         "extension": "mpd"
       }
     ]
@@ -14,52 +14,52 @@
     "samples": [
       {
         "name": "Car",
-        "uri": "http://beirut.eecs.umich.edu/360video/car.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/car.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Concert",
-        "uri": "http://beirut.eecs.umich.edu/360video/concert.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/concert.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Elephants",
-        "uri": "http://beirut.eecs.umich.edu/360video/elephants.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/elephants.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Island",
-        "uri": "http://beirut.eecs.umich.edu/360video/island.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/island.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Playhouse",
-        "uri": "http://beirut.eecs.umich.edu/360video/playhouse.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/playhouse.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Roller Coaster",
-        "uri": "http://beirut.eecs.umich.edu/360video/rollercoaster.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/rollercoaster.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Science Fiction",
-        "uri": "http://beirut.eecs.umich.edu/360video/scifi.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/scifi.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Shark",
-        "uri": "http://beirut.eecs.umich.edu/360video/shark.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/shark.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Skydive",
-        "uri": "http://beirut.eecs.umich.edu/360video/skydive.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/skydive.mp4",
         "spherical_stereo_mode": "mono"
       },
       {
         "name": "Tennis",
-        "uri": "http://beirut.eecs.umich.edu/360video/tennis.mp4",
+        "uri": "http://sydney.eecs.umich.edu:4000/360video/tennis.mp4",
         "spherical_stereo_mode": "mono"
       }
     ]
